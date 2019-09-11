@@ -11,13 +11,17 @@
 </head>
 
 <body>
-  <%= render  "layouts/messages" %>
-  <!-- <% flash.each do |name, msg| %>
-  <ul>
-    <li><%= msg %></li>
-  </ul>
-  <% end %> -->
-  <%= yield %>
+  <%= render  "layouts/navigation" %>
+  <div class="container mt-5">
+    <%= render  "layouts/messages" %>
+    <!-- <% flash.each do |name, msg| %>
+    <ul>
+      <li><%= msg %></li>
+    </ul>
+    <% end %> -->
+    <%= yield %>
+  </div>
+  <%= render  "layouts/footer" %>
 </body>
 
 </html>
