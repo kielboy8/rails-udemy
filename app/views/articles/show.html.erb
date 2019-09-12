@@ -1,11 +1,31 @@
 <h1>Showing selected article:</h1>
 
 <p>
-  Title: <%= @article.title %>
+    Title: <%= @article.title %>
 </p>
 
+<% if @article.user %>
+<div class="row mb-5">
+    <div class="col-6 mx-auto text-center">
+        <div class="card px-3 pt-4">
+            <ul class="list-unstyled">
+                <li>
+                    <%= link_to  gravatar_for(@article.user), user_path(@article.user) %>
+                </li>
+                <li>
+                    <%= link_to  @article.user.username, user_path(@article.user) %>
+                </li>
+                <li>
+                    <small><%= pluralize(@article.user.articles.count, "article") if @article.user.articles %></small>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<% end %>
+
 <p>
-  Description: <%= @article.description %>
+    Description: <%= @article.description %>
 </p>
 
 <%= link_to  "Edit this article", edit_article_path(@article) %> |

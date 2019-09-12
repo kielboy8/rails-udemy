@@ -1,0 +1,21 @@
+<h1 class="display-4 font-weight-normal text-center">All Alpha Blog Users</h1>
+
+<% @users.each do |user| %>
+<div class="row mb-5">
+    <div class="col-6 mx-auto text-center">
+        <div class="card px-3 pt-4">
+            <ul class="list-unstyled">
+                <li>
+                    <%= link_to  gravatar_for(user), user_path(user) %>
+                </li>
+                <li>
+                    <%= link_to  user.username, user_path(user) %>
+                </li>
+                <li>
+                    <small><%= pluralize(user.articles.count, "article") if user.articles %></small>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<% end %>
